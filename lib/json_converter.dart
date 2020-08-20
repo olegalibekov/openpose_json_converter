@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'pose_model.dart';
+import 'dart:html' as html;
 
 List jsonCompilation = [];
 
@@ -318,5 +319,21 @@ getBeginPointIndex(int patternPoint) => patternPoint * 3;
 jsonConverter() async {
   for (int jsonFileIndex = 0; jsonFileIndex < 6; jsonFileIndex++)
     await addJsonData('human_pose_points$jsonFileIndex');
-  print(jsonCompilation);
+
+  downloadFile(jsonCompilation.toString());
+}
+
+downloadFile(String jsonText) {
+  final text = jsonCompilation.toString();
+  final bytes = utf8.encode(text);
+  final blob = html.Blob([bytes]);
+  final url = html.Url.createObjectUrlFromBlob(blob);
+  final anchor = html.document.createElement('a') as html.AnchorElement
+    ..href = url
+    ..style.display = 'none'
+    ..download = 'human_pose.json';
+  html.document.body.children.add(anchor);
+  anchor.click();
+  html.document.body.children.remove(anchor);
+  html.Url.revokeObjectUrl(url);
 }
