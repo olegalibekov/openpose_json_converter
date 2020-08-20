@@ -8,6 +8,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
@@ -24,13 +25,8 @@ class Test extends StatefulWidget {
 
 class _TestState extends State<Test> {
   @override
-  void initState() {
-    jsonConverter();
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    jsonConverter();
     return Scaffold(body: Container(color: Colors.cyan));
   }
 }
