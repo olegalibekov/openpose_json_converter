@@ -317,10 +317,15 @@ addJsonData(String fileName) async {
 getBeginPointIndex(int patternPoint) => patternPoint * 3;
 
 jsonConverter() async {
-  for (int jsonFileIndex = 0; jsonFileIndex < 6; jsonFileIndex++)
-    await addJsonData('human_pose_points$jsonFileIndex');
-
-  downloadFile(jsonCompilation.toString());
+  for (int jsonFileIndex = 0; jsonFileIndex < 1; jsonFileIndex++)
+    await addJsonData('human_pose_points_$jsonFileIndex');
+  final formattedJson = jsonCompilation.toString().replaceAllMapped(RegExp(r'\b\w+\b'), (match) {
+    String word = '${match.group(0)}';
+    return !word.startsWith(RegExp('^[0-9]'))?'"${match.group(0)}"':'4';
+  });
+  // var resultJson = jsonCompilation.toString().replaceAll('pose', '"pose"').replaceA('face', '"face"');
+  print(formattedJson);
+  // downloadFile(resultJson);
 }
 
 downloadFile(String jsonText) {

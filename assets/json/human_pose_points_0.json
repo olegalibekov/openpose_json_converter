@@ -75,7 +75,7 @@
         525.554,
         631.373,
         0.775987,
-        623.746,
+        515.746,
         625.467,
         0.752933,
         543.194,
@@ -295,7 +295,7 @@
         0.859201
       ],
       "hand_left_keypoints_2d": [
-        2222222.345,
+        667.345,
         349.893,
         0.250832,
         657.182,
@@ -424,14 +424,10 @@
         390.097,
         0.919557
       ],
-      "pose_keypoints_3d": [
-      ],
-      "face_keypoints_3d": [
-      ],
-      "hand_left_keypoints_3d": [
-      ],
-      "hand_right_keypoints_3d": [
-      ]
+      "pose_keypoints_3d": [],
+      "face_keypoints_3d": [],
+      "hand_left_keypoints_3d": [],
+      "hand_right_keypoints_3d": []
     }
   ]
 }
