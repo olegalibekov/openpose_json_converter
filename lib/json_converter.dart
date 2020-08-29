@@ -321,15 +321,15 @@ jsonConverter() async {
     await addJsonData('human_pose_points_$jsonFileIndex');
   final formattedJson = jsonCompilation.toString().replaceAllMapped(RegExp(r'\b\w+\b'), (match) {
     String word = '${match.group(0)}';
-    return !word.startsWith(RegExp('^[0-9]'))?'"${match.group(0)}"':word;
+    return !word.startsWith(RegExp('^[0-9]')) && word != 'null'?'"${match.group(0)}"':word;
   });
-  // var resultJson = jsonCompilation.toString().replaceAll('pose', '"pose"').replaceA('face', '"face"');
-  print(formattedJson);
-  // downloadFile(resultJson);
+
+  downloadFile(formattedJson);
 }
 
 downloadFile(String jsonText) {
-  final text = jsonCompilation.toString();
+  final text = jsonText;
+
   final bytes = utf8.encode(text);
   final blob = html.Blob([bytes]);
   final url = html.Url.createObjectUrlFromBlob(blob);
