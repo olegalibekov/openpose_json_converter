@@ -267,7 +267,7 @@ class Body {
         ? new Neck.fromJson(json['rightWrist'])
         : null;
     midThigh =
-        json['mid-thigh'] != null ? new Neck.fromJson(json['mid-thigh']) : null;
+        json['midThigh'] != null ? new Neck.fromJson(json['midThigh']) : null;
     leftHip =
         json['leftHip'] != null ? new Neck.fromJson(json['leftHip']) : null;
     rightHip =
@@ -326,7 +326,7 @@ class Body {
       data['rightWrist'] = this.rightWrist.toJson();
     }
     if (this.midThigh != null) {
-      data['mid-thigh'] = this.midThigh.toJson();
+      data['midThigh'] = this.midThigh.toJson();
     }
     if (this.leftHip != null) {
       data['leftHip'] = this.leftHip.toJson();
